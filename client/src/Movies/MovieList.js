@@ -1,9 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 const MovieList = props => {
+console.log(props)
+  const hist = useHistory()
+  
   return (
-    <div className="movie-list">
-      {props.movies.map(movie => (
+    
+    <div onClick = {hist.pushState(`/movie/${props.movie.id}`)} className="movie-list">
+      {props.movie.map(movie => (
         <MovieDetails key={movie.id} movie={movie} />
       ))}
     </div>
